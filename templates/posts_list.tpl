@@ -1,11 +1,18 @@
 <li class="list-group-item">
-    %if 'name' in post.keys():
+    % if 'name' in post.keys():
         <h3><span class="label label-success">{{post['name']}}</span></h3>
+        <p><strong>Post id - </strong>{{post['id']}}</p>
+        % if 'message' in post.keys():
+            <p><strong>Message:</strong> {{post['message']}}</p>
+        % end
     % end
-    <p><strong>Post id - </strong>{{post['id']}}</p>
-    % if 'message' in post.keys():
-        <p><strong>Message:</strong> {{post['message']}}</p>
+    %if 'name' not in post.keys():
+        % if 'message' in post.keys():
+            <h3><span class="label label-success">{{post['message'].split('.')[0]}}</span></h3>
+        % end
+        <p><strong>Post id - </strong>{{post['id']}}</p>
     % end
+
     % if 'shares' in post.keys():
         <p>Total shares <span class="badge">{{post['shares']}}</span></p>
     % end
