@@ -9,8 +9,15 @@
     % if 'shares' in post.keys():
         <p>Total shares <span class="badge">{{post['shares']}}</span></p>
     % end
-    % if 'full_picture' in post.keys():
-        <a href="{{post['full_picture']}}" target="_blank"><img src="{{post['picture']}}" alt="{{post['id']}}"></a>
+    % if 'type' in post.keys():
+        % if post['type'] == 'video':
+            % if 'object_id' in post.keys():
+                <iframe src="https://www.facebook.com/video/embed?video_id={{post['object_id']}}\" frameborder=\"0\"></iframe>
+            % end
+        % end
+        % if 'full_picture' in post.keys() and post['type'] != 'video':
+            <a href="{{post['full_picture']}}" target="_blank"><img src="{{post['picture']}}" alt="{{post['id']}}"></a>
+        % end
     % end
     <p><i class="glyphicon glyphicon-time"></i> Last modified <span class="badge">{{post['updated_time']}}</span>
     </p>
