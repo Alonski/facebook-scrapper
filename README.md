@@ -53,6 +53,8 @@ MIT
 
 **Free Software, Hell Yeah!**
 
+Special Thanks To [Dillinger]
+
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
    [Run on a remote linux server]:<http://alonb.superbootcamp.tech>
@@ -60,3 +62,6 @@ MIT
    [Bottle]: <https://github.com/bottlepy/bottle>
    [PyCharm]: <https://www.jetbrains.com/pycharm>
    [avihai-repo]: <https://github.com/avihai123/facebook-scrapper>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [facebook-sdk]: <https://github.com/mobolic/facebook-sdk>
+   [Dillinger]: <https://github.com/joemccann/dillinger>
