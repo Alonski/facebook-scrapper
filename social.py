@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 import argparse
+
+import sys
+
 from add_page import add_page, remove_page
 from get_or_update_all_posts import update_posts_per_page
 from server import run_server
@@ -7,7 +10,7 @@ from show_pages import print_page_list
 
 
 parser = argparse.ArgumentParser()
-subparsers = parser.add_subparsers(help='choose blabla')
+subparsers = parser.add_subparsers(help='Use these parameters to get this rolling!')
 
 # create the parser for the "add" command
 parser_add_page = subparsers.add_parser('add', help="add a page")
@@ -31,13 +34,14 @@ parser_serve.add_argument('--debug', default=False, help="enable debugger")
 parser_serve.add_argument('--reloader', default=False, help="enable auto reload")
 parser_serve.set_defaults(func=lambda args: run_server(args.interface, args.port, args.debug, args.reloader))
 
-
-#create the parser for the "remove" command
-parser_remove_page = subparsers.add_parser('remove')
+# create the parser for the "remove" command
+parser_remove_page = subparsers.add_parser('remove', help="remove posts from facebook/twitter")
 parser_remove_page.add_argument('page_id', help="page id")
 parser_remove_page.set_defaults(func=lambda args: remove_page(args.page_id))
 
 
 # # parse the args and call whatever function was selected
 args = parser.parse_args()
+if not any(vars(args).values()):
+    sys.exit('Please supply a function to call\nUse -h for help')
 args.func(args)
