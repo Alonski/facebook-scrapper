@@ -81,7 +81,7 @@
 	</script>
     <div class="container-fluid">
     % if 'Posts from' in title:
-        test
+        <!-- # TODO Add DatePicker -->
     % end
         {{!base}}
     </div>
