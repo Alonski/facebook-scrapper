@@ -4,7 +4,7 @@ from models import pages
 
 
 def get_page_list():
-    return [p for p in pages.find()]
+    return list(pages.find())
 
 
 def print_page_list():
@@ -13,8 +13,6 @@ def print_page_list():
 
 def get_page_name(page_id):
     return pages.find_one({'id': page_id})['name']
-    # for p in pages.find_one({'id': page_id}):
-    #     print("ID - {id}, name - {name}, fans - {fan_count}".format(**p))
 
 def get_page_by_id(page_id):
     return pages.find_one({'id': page_id})
@@ -23,6 +21,5 @@ def get_page_by_id(page_id):
 
 
 if __name__ == '__main__':
-    #print_page_list()
     pprint(get_page_list())
     # pprint(get_page_name('40796308305'))
