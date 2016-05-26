@@ -53,7 +53,7 @@ def aggregate_post_types():
     return posts.aggregate(pipeline)
 
 def page_statictics():
-
+    pass
 
 
 # pprint(get_best_posts())
