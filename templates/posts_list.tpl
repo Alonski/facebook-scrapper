@@ -20,7 +20,7 @@
                 <h3><span class="label label-success">{{post['message'].split('.')[0]}}</span></h3>
             % end
         % end
-        <a href="https://www.facebook.com/{{post['id']}}/">
+        <a href="https://www.facebook.com/{{post['id']}}/" target="_blank">
             <h4 class="media-heading">{{post['name'] if 'name' in post.keys() else '' }}</h4>
             % if 'message' in post.keys():
                 <p>{{post['message']}}</p>
