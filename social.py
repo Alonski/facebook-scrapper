@@ -43,5 +43,5 @@ parser_remove_page.set_defaults(func=lambda args: remove_page(args.page_id))
 # # parse the args and call whatever function was selected
 args = parser.parse_args()
 if not any(vars(args).values()):
-    sys.exit('Please supply a function to call\nUse -h for help')
+    sys.exit('Please supply a command to call\nUse -h for help')
 args.func(args)
