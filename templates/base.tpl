@@ -41,6 +41,7 @@
                     % include('templates/dropdown.tpl')
                   </ul>
                 </li>
+                <li><a href="{{today}}">Posts From Today</a></li>
               </ul>
               <form class="navbar-form navbar-right" role="search" action="/search" method="get">
                 <div class="form-group">
@@ -79,6 +80,9 @@
 	<script>
 	</script>
     <div class="container-fluid">
+    % if 'Posts from' in title:
+        test
+    % end
         {{!base}}
     </div>
     <h3>Built By: <a href="https://github.com/Alonski/facebook-scrapper">Alon Bukai</a> and <a href="https://github.com/avihai123/facebook-scrapper">Avihai Yosef</a></h3>

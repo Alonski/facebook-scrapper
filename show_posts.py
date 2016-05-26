@@ -8,12 +8,12 @@ from models import posts, pages
 
 
 def get_recent_posts(limit=50):
-    return posts.find().sort('updated_time', pymongo.DESCENDING).limit(limit)
+    return posts.find().sort('created_time', pymongo.DESCENDING).limit(limit)
 
 
 def posts_from_date(date):
     d_end = date + datetime.timedelta(days=1)
-    return posts.find({'updated_time': {"$gt": date, "$lt": d_end}}).sort('shares', pymongo.DESCENDING)
+    return posts.find({'created_time': {"$gt": date, "$lt": d_end}}).sort('shares', pymongo.DESCENDING)
 
 
 def get_posts_ordered_by_popularity(the_page_id):

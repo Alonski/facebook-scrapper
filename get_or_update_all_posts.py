@@ -4,7 +4,7 @@ from models import pages, posts, graph, upsert
 import dateutil.parser
 import requests
 
-FIELDS_TO_UPDATE = 'link,object_id,shares,type,name,full_picture,picture,message,likes.limit(1).summary(True),comments.limit(1).summary(true),updated_time&limit='
+FIELDS_TO_UPDATE = 'link,object_id,shares,type,name,full_picture,picture,message,likes.limit(1).summary(True),comments.limit(1).summary(true),created_time&limit='
 REQUEST_POSTS_FORMAT = '/{}/posts/?fields={}{}'
 POSTS_LIMIT_REQUEST = 40
 
@@ -36,7 +36,7 @@ def async_posts_update(page, post_limit):
             break
 
         # convert time to datetime, add reference to page_id
-        post['updated_time'] = dateutil.parser.parse(post['updated_time'])
+        post['created_time'] = dateutil.parser.parse(post['created_time'])
         post['page_id'] = page['id']
 
         # convert shares, likes, comments to total shares

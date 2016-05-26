@@ -8,13 +8,13 @@ from show_posts import *
 # TODO each post now have link and type of link, (video,picture,link) maybe we can use it.
 @route('/')
 def index():
-    return template('templates/pages', title='Home', page_list=get_page_list(), post_dict=get_best_posts_per_page())
+    return template('templates/pages', title='Home', page_list=get_page_list(), post_dict=get_best_posts_per_page(), today='/{}/{}/{}/'.format(*str(datetime.date.today()).split('-')))
 
 
 @route('/<page_id>/')
 def show_posts(page_id):
     return template('templates/posts', title='{} Posts'.format(get_page_name(page_id)), page_list=get_page_list(),
-                    post_list=get_posts_ordered_by_popularity(page_id), page_id=page_id)
+                    post_list=get_posts_ordered_by_popularity(page_id), page_id=page_id, today='/{}/{}/{}/'.format(*str(datetime.date.today()).split('-')))
 
 
 # @route('/<page_name>/')
@@ -27,20 +27,20 @@ def show_posts(page_id):
 @route('/latest/')
 def show_recent_posts():
     return template('templates/posts', title='Recent Posts', page_list=get_page_list(), post_list=get_recent_posts(),
-                    page_id='needtofix')
+                    page_id='needtofix', today='/{}/{}/{}/'.format(*str(datetime.date.today()).split('-')))
 
 
 @route('/search')
 def search_results():
     return template('templates/posts', title='Search Results', page_list=get_page_list(),
-                    post_list=search_text_in_db(request.query.queryString or ''), page_id='needtofix')
+                    post_list=search_text_in_db(request.query.queryString or ''), page_id='needtofix', today='/{}/{}/{}/'.format(*str(datetime.date.today()).split('-')))
 
 
 @route('/<year:int>/<month:int>/<day:int>/')
 def show_posts_from_date(year, month, day):
     date = datetime.datetime(year, month, day)
     return template('templates/posts', title="Posts from {}.{}.{}".format(day, month, year),
-                    post_list=posts_from_date(date), page_list=get_page_list())
+                    post_list=posts_from_date(date), page_list=get_page_list(), today='/{}/{}/{}/'.format(*str(datetime.date.today()).split('-')))
 
 
 def run_server(interface='127.0.0.1', port=8000, debug=True, reloader=True):

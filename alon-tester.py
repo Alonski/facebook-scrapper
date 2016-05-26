@@ -1,15 +1,18 @@
 import argparse
+import datetime
 
 from add_page import add_page
 from get_or_update_all_posts import update_posts_per_page
-add_page('facebook')
-update_posts_per_page()
+# add_page('facebook')
+# update_posts_per_page()
 
 def add_fb_page(page_name=''):
     add_page(page_name)
 
 def update_all_posts():
     update_posts_per_page()
+
+print((str(datetime.date.today()).split('-')))
 
 # if __name__ == "__main__":
 #     parser = argparse.ArgumentParser(description='Facebook Agg User')

@@ -21,18 +21,15 @@
             % end
         % end
         <a href="https://www.facebook.com/{{post['id']}}/">
-            <h4 class="media-heading">{{post['name'] if 'name' in post.keys() else 'Unnamed post' }}</h4>
-            % if 'message' in post.keys():
-              <p>{{post['message']}}</p>
-            % end
+            <h4 class="media-heading">{{post['name'] if 'name' in post.keys() else '' }}</h4>
             % if 'message' in post.keys():
                 <p>{{post['message']}}</p>
             % end
             % if 'shares' and 'likes' and 'comments' in post.keys():
                 <p>{{post['shares']}} shares {{post['likes']}} likes {{post['comments']}} comments</p>
             % end
-            % if 'updated_time' in post.keys():
-                <p><i class="glyphicon glyphicon-time"></i><span class="badge">{{post['updated_time']}}</span>
+            % if 'created_time' in post.keys():
+                <p><i class="glyphicon glyphicon-time"></i><span class="badge">{{post['created_time']}}</span>
             % end
             </a>
     </div>
